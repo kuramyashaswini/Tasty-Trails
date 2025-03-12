@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%; /* Lighter off-white background */
+    --foreground: 30 10% 15%;
+
+    --card: 38 50% 98%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 38 50% 98%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 28 96% 52%;
+    --primary-foreground: 38 50% 98%;
+
+    --secondary: 32 80% 88%;
+    --secondary-foreground: 30 10% 15%;
+
+    --muted: 30 10% 93%;
+    --muted-foreground: 30 8% 40%;
+
+    --accent: 94 35% 60%;
+    --accent-foreground: 30 10% 15%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 38 50% 98%;
+
+    --border: 30 15% 85%;
+    --input: 30 15% 85%;
+    --ring: 28 96% 52%;
+
+    --radius: 1rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f5f5f5; /* Set the background color */
+  }
+
+  body {
+    @apply bg-background text-foreground bg-fixed antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+  }
+
+  /* Custom animations */
+  .glass-morph {
+    @apply backdrop-blur-md bg-white/60 border border-white/20 shadow-lg;
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+  }
+
+  .reveal-on-scroll.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer components {
+  .btn-hover-effect {
+    @apply relative overflow-hidden transition-all duration-300 before:absolute before:inset-0 before:z-0 before:bg-primary/10 before:transition-all before:duration-300 hover:before:opacity-100 before:opacity-0;
+  }
+
+  .text-shadow-sm {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:shadow-lg;
+  }
+}
